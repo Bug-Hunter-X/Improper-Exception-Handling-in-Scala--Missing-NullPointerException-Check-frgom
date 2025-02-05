@@ -1,0 +1,3 @@
+# Improper Exception Handling in Scala: Missing NullPointerException Check
+
+This example showcases a common error in Scala: neglecting to handle potential `NullPointerExceptions`. While the code gracefully handles `IllegalArgumentException` when a negative value is assigned, it's vulnerable if `myObj` is unexpectedly null.  This improved version demonstrates robust exception handling, protecting against both `IllegalArgumentException` and `NullPointerException`.   The solution adds a null check before accessing the object.
