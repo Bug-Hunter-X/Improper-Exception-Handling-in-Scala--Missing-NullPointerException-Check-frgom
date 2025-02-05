@@ -1,0 +1,27 @@
+```scala
+class MyClass {
+  private var _value: Int = 0
+
+  def value: Int = _value
+  def value_=(newValue: Int): Unit = {
+    if (newValue < 0) {
+      throw new IllegalArgumentException("Value cannot be negative")
+    }
+    _value = newValue
+  }
+}
+
+object Main extends App {
+  var myObj: MyClass = _ // Allow myObj to be null initially
+  
+try{  
+    myObj = new MyClass //Initialize only if needed. You can also initialize outside of try/catch block
+    myObj.value = 10
+    println(myObj.value) // Output: 10
+    myObj.value = -5
+  } catch {
+    case e: IllegalArgumentException => println(e.getMessage) // Output: Value cannot be negative
+    case e: NullPointerException => println("Object is null: " + e.getMessage)
+  }
+}
+```
